@@ -4,6 +4,7 @@ class TabBarVC: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tabBar.backgroundColor = UIColor.white
         tabBar.tintColor = UIColor(named: "BlindDateenPink")
         
         let datingPlaceVC = DatingPlaceVC()
