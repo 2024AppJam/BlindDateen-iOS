@@ -49,7 +49,7 @@ class ChatVC: BaseVC {
         
         addView()
         setLayout()
-        addImageViewTapGesture() // 이미지 뷰에 탭 제스처 추가
+        addImageViewTapGesture()
     }
     
     override func addView() {
