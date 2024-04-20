@@ -113,9 +113,9 @@ class SignInVC: BaseVC {
     }
     
     @objc func logintButtonDidTap() {
-        let mainVC = MainVC()
-        mainVC.modalPresentationStyle = .fullScreen
-        present(mainVC, animated: false, completion: nil)
+        let tabbarVC = TabBarVC()
+        tabbarVC.modalPresentationStyle = .fullScreen
+        present(tabbarVC, animated: false, completion: nil)
     }
     
     @objc func signUpButtonDidTap() {

@@ -27,6 +27,14 @@ class EventVC: BaseVC {
         $0.textColor = .black
     }
     
+//    private let coffeeCardView = UIImageView(image: UIImage(named: "CoffeeEventCard"))
+    private let coffeeCardView = UIButton().then {
+        $0.setImage(UIImage(named: "CoffeeEventCard"), for: .normal)
+        $0.addTarget(self, action: #selector(coffeeCardViewDidTap), for: .touchUpInside)
+    }
+    
+    private let evnetCardView = UIImageView(image: UIImage(named: "EventCards"))
+    
     private let scrollView = UIScrollView().then {
         $0.backgroundColor = .clear
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -51,7 +59,7 @@ class EventVC: BaseVC {
     }
     
     override func addView() {
-        [titleLabel, searchTextField, scrollView].forEach { view.addSubview($0) }
+        [titleLabel, searchTextField, scrollView, coffeeCardView, evnetCardView].forEach { view.addSubview($0) }
         scrollView.addSubview(collectionView)
     }
     
@@ -76,6 +84,24 @@ class EventVC: BaseVC {
         collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+        
+        coffeeCardView.snp.makeConstraints {
+            $0.width.equalTo(362)
+            $0.height.equalTo(252)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(30)
+            $0.centerX.equalToSuperview()
+        }
+        
+        evnetCardView.snp.makeConstraints {
+            $0.top.equalTo(coffeeCardView.snp.bottom).offset(16)
+            $0.centerX.equalToSuperview()
+        }
+    }
+    
+    @objc func coffeeCardViewDidTap() {
+        let 이벤트상세VC = 이벤트상세VC()
+        이벤트상세VC.modalPresentationStyle = .fullScreen
+        present(이벤트상세VC, animated: false, completion: nil)
     }
 }
 

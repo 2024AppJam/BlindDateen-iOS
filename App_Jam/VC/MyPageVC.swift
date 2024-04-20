@@ -1,23 +1,27 @@
 import UIKit
 
 class MyPageVC: BaseVC {
-    private let text = UILabel().then {
-        $0.text = "마이페이지입니당"
+    private let profileView = UIImageView(image: UIImage(named: "MyPageView"))
+
+    override func addView() {
+        view.addSubview(profileView)
+    }
+
+    override func setLayout() {
+        super.setLayout()
+        profileView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(54)
+            $0.centerX.equalToSuperview()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    override func addView() {
-        [text].forEach {
-            view.addSubview($0)
-        }
-    }
-    
-    override func setLayout() {
-        text.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
-        }
+
+    @objc private func profileButtonTapped() {
+        let signUpVC = SignUpVC()
+        signUpVC.modalPresentationStyle = .fullScreen
+        present(signUpVC, animated: false, completion: nil)
     }
 }

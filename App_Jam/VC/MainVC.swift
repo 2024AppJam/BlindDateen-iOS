@@ -3,7 +3,10 @@ import UIKit
 class MainVC: BaseVC {
     private let yo = UIImageView().then {
         $0.image = UIImage(named: "요청")
+        
     }
+    
+    
     
     private let 추천Label = UILabel().then {
         $0.text = "추천"
@@ -17,6 +20,7 @@ class MainVC: BaseVC {
     
     private let 매칭Button = UIButton().then {
         $0.setImage(UIImage(named: "매칭"), for: .normal)
+        $0.addTarget(self, action: #selector(매칭ButtonDidTap), for: .touchUpInside)
     }
     
     private let 키워드 = UIImageView().then {
@@ -67,5 +71,9 @@ class MainVC: BaseVC {
             $0.top.equalTo(키워드.snp.bottom).offset(25)
             $0.centerX.equalToSuperview()
         }
+    }
+    
+    @objc func 매칭ButtonDidTap() {
+        
     }
 }

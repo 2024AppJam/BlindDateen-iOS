@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
             window = UIWindow(windowScene: windowScene)
             window?.backgroundColor = .systemBackground
-            window?.rootViewController = UINavigationController(rootViewController: TabBarVC())
+            window?.rootViewController = UINavigationController(rootViewController: SplashVC())
             window?.makeKeyAndVisible()
     }
 

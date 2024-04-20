@@ -39,6 +39,8 @@ class SignUpVC: BaseVC {
         $0.leftViewMode = .always
         
         $0.textColor = .black
+        
+        $0.isSecureTextEntry = true
     }
     
     private let passwordCheckTextField = UITextField().then {
@@ -56,6 +58,8 @@ class SignUpVC: BaseVC {
         $0.leftViewMode = .always
         
         $0.textColor = .black
+        
+        $0.isSecureTextEntry = true
     }
     
     private let phoneNumberTextField = UITextField().then {
@@ -182,9 +186,9 @@ class SignUpVC: BaseVC {
     }
     
     @objc func SignUpButtonDidTap() {
-        let mainVC = MainVC()
-        mainVC.modalPresentationStyle = .fullScreen
-        present(mainVC, animated: false, completion: nil)
+        let signInVC = SignInVC()
+        signInVC.modalPresentationStyle = .fullScreen
+        present(signInVC, animated: false, completion: nil)
     }
     
     @objc func validationTextButtonDidTap() {
