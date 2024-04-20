@@ -3,6 +3,7 @@ import UIKit
 class 이벤트상세VC: BaseVC {
     private let Button = UIButton().then {
         $0.setImage(UIImage(named: "Button"), for: .normal)
+        $0.addTarget(self, action: #selector(buttonDidTap), for: .touchUpInside)
     }
     
     private let 포스터 = UIImageView(image: UIImage(named: "포스터"))
@@ -41,5 +42,11 @@ class 이벤트상세VC: BaseVC {
             $0.top.equalTo(포스터.snp.bottom)
             $0.leading.equalToSuperview().offset(20)
         }
+    }
+    
+    @objc func buttonDidTap() {
+        let tabbarVC = TabBarVC()
+        tabbarVC.modalPresentationStyle = .fullScreen
+        present(tabbarVC, animated: false, completion: nil)
     }
 }

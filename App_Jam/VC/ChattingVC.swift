@@ -1,6 +1,6 @@
 import UIKit
 
-class ChatingVC: BaseVC {
+class ChattingVC: BaseVC {
     // MARK: Properties
     private let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 393, height: 114)).then {
         $0.backgroundColor = UIColor(named: "BlindDateenPink")
@@ -10,6 +10,11 @@ class ChatingVC: BaseVC {
         $0.text = "박찬우"
         $0.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         $0.textColor = .black
+    }
+    
+    private let button = UIButton().then {
+        $0.setImage(UIImage(named: "Button"), for: .normal)
+        $0.addTarget(self, action: #selector(buttonDidTap), for: .touchUpInside)
     }
     
     private let chattingView = UIImageView(image: UIImage(named: "Chatting"))
@@ -56,7 +61,7 @@ class ChatingVC: BaseVC {
         
         titleView.addSubview(nameLabel)
         
-        [titleView, chattingView, messageView].forEach {
+        [titleView, button, chattingView, messageView].forEach {
             view.addSubview($0)
         }
     }
@@ -67,6 +72,12 @@ class ChatingVC: BaseVC {
             $0.height.equalTo(114)
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
+        }
+        
+        button.snp.makeConstraints {
+            $0.width.height.equalTo(48)
+            $0.top.equalToSuperview().offset(54)
+            $0.leading.equalToSuperview().offset(20)
         }
         
         nameLabel.snp.makeConstraints {
@@ -108,6 +119,10 @@ class ChatingVC: BaseVC {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(16)
         }
+    }
+    
+    @objc func buttonDidTap() {
+        
     }
     
     @objc override func keyboardWillShow(_ sender: Notification) {
