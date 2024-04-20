@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "MatchingIcon.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
